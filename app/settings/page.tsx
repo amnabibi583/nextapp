@@ -1,0 +1,1 @@
+export default function Settings() { return <main className="main"><p className="eyebrow">Workspace</p><h1>Settings</h1><div className="notice"><h2>Notification and profile settings coming soon</h2><p>Configure your CareAlert profile and notification preferences here.</p></div></main>; }

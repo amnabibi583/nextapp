@@ -1,0 +1,1 @@
+export default function Contacts() { return <main className="main"><p className="eyebrow">Care team</p><h1>Emergency Contacts</h1><div className="notice"><h2>Contact management screen coming soon</h2><p>This space will help care teams manage emergency contacts and escalation preferences.</p></div></main>; }
