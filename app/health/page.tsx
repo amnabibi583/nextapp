@@ -7,6 +7,8 @@ async function getHealth(): Promise<Todo> {
 }
 
 export default async function Health() {
-  try { const todo = await getHealth(); return <main className="main"><p className="eyebrow">System status</p><h1>Health Check</h1><div className="notice"><h2>Service reachable</h2><p><strong>Todo:</strong> {todo.title}</p><p><strong>Status:</strong> {todo.completed ? 'Complete' : 'Pending'}</p></div></main>; }
-  catch { return <main className="main"><p className="eyebrow">System status</p><h1>Health Check</h1><div className="notice" style={{ borderColor: 'var(--emergency)' }}><h2>Service unavailable</h2><p>We could not reach the health service. Please try again later.</p></div></main>; }
+  let todo: Todo | null = null;
+  try { todo = await getHealth(); } catch { todo = null; }
+  if (!todo) return <main className="main"><p className="eyebrow">System status</p><h1>Health Check</h1><div className="notice" style={{ borderColor: 'var(--emergency)' }}><h2>Service unavailable</h2><p>We could not reach the health service. Please try again later.</p></div></main>;
+  return <main className="main"><p className="eyebrow">System status</p><h1>Health Check</h1><div className="notice"><h2>Service reachable</h2><p><strong>Todo:</strong> {todo.title}</p><p><strong>Status:</strong> {todo.completed ? 'Complete' : 'Pending'}</p></div></main>;
 }
